@@ -1,0 +1,4 @@
+#Thu Jun 07 11:27:01 ICT 2018
+base.0=D\:\\aditia\\Label Ideas\\APP\\cashierapp\\platforms\\android\\app\\build\\intermediates\\transforms\\dex\\release\\0
+renamed.0=classes.dex
+file.0=D\:\\aditia\\Label Ideas\\APP\\cashierapp\\platforms\\android\\app\\build\\intermediates\\transforms\\dex\\release\\0\\classes.dex

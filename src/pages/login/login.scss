@@ -1,0 +1,74 @@
+page-login {
+    .scroll-content{
+        padding: 20px !important;
+    }
+    .wrap-login{
+        display: block;
+        position: relative;
+        top: 40%;
+        transform: translateY(-50%);
+        .image-logo{
+            padding: 50px;
+        }
+        .card-cst{
+            margin: 0;
+            width: 100%;
+            .card-content {
+                padding-bottom: 16px
+            }
+            .item-input {
+                padding: 0;
+            }
+
+            .item-input + .item-input{
+                margin-top: 10px;
+            }
+            // .item-input-has-focus {
+            //     color: #ffd441;
+            // }
+            .label-login {
+                color: #464646;
+            }
+            .passwordIcon{
+               font-size:2rem !important;
+               position: relative !important;
+               top: 22px !important;
+               margin: 0 auto !important;
+            }
+        }
+        .button-login {
+            margin-top: 20px;
+            background-color: #ffd441;
+            color: #000;
+        }
+        .button-md:hover:not(.disable-hover) {
+            background-color: #000;
+            color: #ffd441;
+        }
+    }
+
+    .list-md .item-input {
+        border-bottom: 1px solid #dedede;
+    }
+
+    .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus .item-inner {
+        border-bottom: 1px solid #dedede;
+        box-shadow: 0px 0px;
+    }
+
+    .list-md .item-input.item-input-has-focus:last-child, .list-md .item-input.input-has-focus:last-child {
+        border-bottom: 1px solid #dedede;
+        box-shadow: 0px 0px;
+    }
+
+
+
+    .footer-login{
+        min-height: 20px;
+        .toolbar-title{
+            font-size: 1rem;
+            color: #a6a6a6;
+        }
+    }
+    
+}
