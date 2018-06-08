@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\aditia\\Label Ideas\\APP\\cashierapp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
+            "outputFile": "D:\\aditia\\Label Ideas\\APP\\aventor\\aventor_app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
             "map": [
                 {
-                    "source": "D:\\aditia\\Label Ideas\\APP\\cashierapp\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "D:\\aditia\\Label Ideas\\APP\\aventor\\aventor_app\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "4,2,3",
                         "startColumns": "4,4,4",

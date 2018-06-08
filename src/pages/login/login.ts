@@ -23,42 +23,32 @@ export class LoginPage {
 
 
   login(){
-    this.showLoading();
+   this.showLoading();
 
    let dataSend = {
-        'userName': this.username,
-        'password': this.password,
-        // 'labelxpossystem' : '4d45dc764db7153261f7f24b32ae9435'
-    };
-    let headers = {
-        'Content-Type': 'application/x-www-form-urlencoded'
-    };
-      console.log(headers);
-    return this.http.post('http://52.77.4.24/dev/arventor/login/ajax_login_app/', dataSend, headers)
-        .then((data) => {
-            console.log(JSON.parse(data.data).status);
-            this.navCtrl.setRoot(HomePage);
-            this.loading.dismiss();
-            this.loginSuccessToast();
-            
-        })
-        .catch((error) => {
-            console.log("Server Error");
-            this.loading.dismiss();
-            this.showAlert("SERVER ERRor");
-        });
-
-
-
-    // if (this.username != 'admin' || this.password != 'admin' ) {
-    //     
-    // }
-    // else{
-    //   this.navCtrl.setRoot(HomePage);
-    //   this.loading.dismiss();
-    //   this.loginSuccessToast();
-    // }
-    
+      'userName': this.username,
+      'password': this.password,
+      // 'labelxpossystem' : '4d45dc764db7153261f7f24b32ae9435'
+  };
+  let headers = {
+      'Content-Type': 'application/x-www-form-urlencoded'
+  };
+  return this.http.post('http://52.77.4.24/dev/arventor/login/ajax_login_app/', dataSend, headers)
+    .then((data) => {
+      if (JSON.parse(data.data).status == 'error') {
+        this.loading.dismiss();
+        this.showAlert("Username dan Password Salah");
+      }
+      else{
+        this.navCtrl.setRoot(HomePage);
+        this.loading.dismiss();
+        this.loginSuccessToast();
+      }
+    })
+    .catch((error) => {
+        this.loading.dismiss();
+        this.showAlert("SERVER ERROR");
+    });
   }
 
     passwordType: string = 'password';

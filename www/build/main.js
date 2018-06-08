@@ -71,7 +71,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\aditia\Label Ideas\APP\cashierapp\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Ionic Blank\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  The world is your oyster.\n  <p>\n    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.\n  </p>\n\n    <button ion-button icon-right float-right class="button-login" (click)="goLogin()">\n        LOGOUT\n        <ion-icon name="log-out"></ion-icon>\n    </button>\n</ion-content>\n'/*ion-inline-end:"D:\aditia\Label Ideas\APP\cashierapp\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"D:\aditia\Label Ideas\APP\aventor\aventor_app\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Ionic Blank\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  The world is your oyster.\n  <p>\n    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.\n  </p>\n\n    <button ion-button icon-right float-right class="button-login" (click)="goLogin()">\n        LOGOUT\n        <ion-icon name="log-out"></ion-icon>\n    </button>\n</ion-content>\n'/*ion-inline-end:"D:\aditia\Label Ideas\APP\aventor\aventor_app\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
     ], HomePage);
@@ -199,7 +199,7 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\aditia\Label Ideas\APP\cashierapp\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"D:\aditia\Label Ideas\APP\cashierapp\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\aditia\Label Ideas\APP\aventor\aventor_app\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"D:\aditia\Label Ideas\APP\aventor\aventor_app\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -257,27 +257,22 @@ var LoginPage = /** @class */ (function () {
         var headers = {
             'Content-Type': 'application/x-www-form-urlencoded'
         };
-        console.log(headers);
         return this.http.post('http://52.77.4.24/dev/arventor/login/ajax_login_app/', dataSend, headers)
             .then(function (data) {
-            console.log(JSON.parse(data.data).status);
-            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
-            _this.loading.dismiss();
-            _this.loginSuccessToast();
+            if (JSON.parse(data.data).status == 'error') {
+                _this.loading.dismiss();
+                _this.showAlert("Username dan Password Salah");
+            }
+            else {
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
+                _this.loading.dismiss();
+                _this.loginSuccessToast();
+            }
         })
             .catch(function (error) {
-            console.log("Server Error");
             _this.loading.dismiss();
-            _this.showAlert("SERVER ERRor");
+            _this.showAlert("SERVER ERROR");
         });
-        // if (this.username != 'admin' || this.password != 'admin' ) {
-        //     
-        // }
-        // else{
-        //   this.navCtrl.setRoot(HomePage);
-        //   this.loading.dismiss();
-        //   this.loginSuccessToast();
-        // }
     };
     LoginPage.prototype.hideShowPassword = function () {
         this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
@@ -306,7 +301,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"D:\aditia\Label Ideas\APP\cashierapp\src\pages\login\login.html"*/'<ion-content padding>\n    <div class="wrap-login">\n        <div class="image-logo">\n            <img src="assets/imgs/logo.png">\n        </div>\n        <form (ngSubmit)="login()" #loginForm="ngForm">\n          <ion-card class="card-cst">\n              <ion-card-content>\n                  <ion-list>\n                    <ion-item>\n                      <ion-label class="label-login" stacked>Username</ion-label>\n                      <ion-input type="text" [(ngModel)]="username" name="Username" required></ion-input>\n                    </ion-item>\n\n                    <ion-item>\n                      <ion-label class="label-login" stacked>Password</ion-label>\n                      <ion-input  [type]="passwordType" [(ngModel)]="password" name="password" clearOnEdit="false" required></ion-input>\n                      <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)=\'hideShowPassword()\'></ion-icon>\n                    </ion-item>\n                  </ion-list>\n                \n              </ion-card-content>\n          </ion-card>\n          <button ion-button icon-right float-right [disabled]="!loginForm.form.valid" type="submit" class="button-login">\n            LOGIN\n            <ion-icon name="log-in"></ion-icon>\n          </button>\n        </form>\n    </div>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar class="footer-login">\n    <ion-title>Label Ideas & co</ion-title>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"D:\aditia\Label Ideas\APP\cashierapp\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"D:\aditia\Label Ideas\APP\aventor\aventor_app\src\pages\login\login.html"*/'<ion-content padding>\n    <div class="wrap-login">\n        <div class="image-logo">\n            <img src="assets/imgs/logo.png">\n        </div>\n        <form (ngSubmit)="login()" #loginForm="ngForm">\n          <ion-card class="card-cst">\n              <ion-card-content>\n                  <ion-list>\n                    <ion-item>\n                      <ion-label class="label-login" stacked>Username</ion-label>\n                      <ion-input type="text" [(ngModel)]="username" name="Username" required></ion-input>\n                    </ion-item>\n\n                    <ion-item>\n                      <ion-label class="label-login" stacked>Password</ion-label>\n                      <ion-input  [type]="passwordType" [(ngModel)]="password" name="password" clearOnEdit="false" required></ion-input>\n                      <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)=\'hideShowPassword()\'></ion-icon>\n                    </ion-item>\n                  </ion-list>\n                \n              </ion-card-content>\n          </ion-card>\n          <button ion-button icon-right float-right [disabled]="!loginForm.form.valid" type="submit" class="button-login">\n            LOGIN\n            <ion-icon name="log-in"></ion-icon>\n          </button>\n        </form>\n    </div>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar class="footer-login">\n    <ion-title>Label Ideas & co</ion-title>\n  </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"D:\aditia\Label Ideas\APP\aventor\aventor_app\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_native_http__["a" /* HTTP */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */]])
     ], LoginPage);
